@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar produtos</title>
+</head>
+<body>
+    <form>
+        <label for="codigo">Código:</label>
+        <input type="number" id="codigo"/>
+        
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao"/>
+
+        <label for="estoque">Estoque:</label>
+        <input type="number" id="estoque"/>
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco"/>
+
+        <button type="submit" id="btn-cadastrar">Cadastrar</button>
+
+        <div id="mensagem-erro"></div> <!-- Div para exibir a mensagem de erro -->
+    </form>
+
+    <script type="module">
+
+        import Produto  from './produto.js';
+        import { RepositorioProduto } from './repositorio-produto.js';
+    
+        const repositorio = new RepositorioProduto();
+    
+        const cadastrarProduto = (event) => {
+
+            event.preventDefault();
+            
+            const codigo = Number(document.querySelector('#codigo').value);
+            const descricao = document.querySelector('#descricao').value;
+            const estoque = Number(document.querySelector('#estoque').value);
+            const preco = Number(document.querySelector('#preco').value);
+    
+            try {
+                const produto = new Produto(codigo, descricao, estoque, preco);
+                
+                repositorio.adicionar(produto);
+
+                alert("Sucesso!")
+
+                location.href = 'listagem-produtos.html';
+
+            } catch (error) {
+                exibirMensagemErro(error.message);
+            }
+        };
+    
+        const exibirMensagemErro = (mensagem) => {
+            const divErro = document.querySelector('#mensagem-erro');
+            const p = document.createElement('h1'); 
+            p.innerHTML = mensagem;
+            divErro.appendChild(p); 
+        };
+    
+        document.querySelector('#btn-cadastrar').addEventListener('click', cadastrarProduto);
+          
+    </script>
+    
+
+</body>
+</html>

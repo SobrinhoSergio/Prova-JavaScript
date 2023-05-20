@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem Produtos</title>
+</head>
+  <body>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+          <th>Estoque</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <script type="module">
+      
+        import { RepositorioProduto } from './repositorio-produto.js';
+    
+        const repositorio = new RepositorioProduto();
+
+        // Aqui ela está pegando todos os valores que estão no localStorage
+        const produtos = repositorio.obterTodos();
+    
+        const produtosTbody = document.querySelector('table tbody');
+        
+          for (const produto of produtos) {
+            const tr = document.createElement('tr');
+            const tdCodigo = document.createElement('td');
+            const tdDescricao = document.createElement('td');
+            const tdEstoque = document.createElement('td');
+            const tdPreco = document.createElement('td');
+            const tdExcluir = document.createElement('td'); // adiciona uma coluna para o botão de excluir
+    
+            tdCodigo.innerText = produto._codigo;
+            tdDescricao.innerText = produto._descricao;
+            tdEstoque.innerText = produto._estoque;
+            tdPreco.innerText = produto._preco;
+            tdExcluir.innerHTML = '<button>Excluir</button>'; // adiciona o botão de excluir à coluna
+    
+            tr.appendChild(tdCodigo);
+            tr.appendChild(tdDescricao);
+            tr.appendChild(tdEstoque);
+            tr.appendChild(tdPreco);
+            tr.appendChild(tdExcluir); // adiciona a coluna do botão de excluir à linha
+    
+            produtosTbody.appendChild(tr);
+
+            const btnExcluir = tdExcluir.querySelector('button'); // obtém o botão de excluir dentro da coluna
+            
+            btnExcluir.addEventListener('click', () => {
+                const index = produtos.indexOf(produto); // obtém o índice do produto no array
+                if (index !== -1) {
+                    produtos.splice(index, 1); // remove o produto do array
+                    localStorage.setItem('produtos', JSON.stringify(produtos)); // atualiza o localStorage
+                    tr.remove(); // remove a linha da tabela
+                }
+            });
+          }
+    </script>
+    
+  </body>
+</html>
