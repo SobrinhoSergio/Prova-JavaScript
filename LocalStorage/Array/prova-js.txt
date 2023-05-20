@@ -1,0 +1,42 @@
+1) a) Implemente o arquivo "produto.js" para conter um classe que represente um produto, contendo atributos que correspondam
+aos campos do formulário acima, além de um atributo "id" (identificação). A classe deve poder ser importada por outros arquivos,
+deve ter um construtor para inicializar os atributos e não deve ter getters e setters. Crie nela um método para validar seus
+próprios atributos, que retorne todos os problemas identificados, como array de string. Considere as seguintes regras de
+negócio para validar um produto:
+
+-> O id deve ser um número e seu valor deve ser positivo;
+-> A descrição deve ter entre 2 a 100 caracteres;
+-> O estoque deve ser um número e seu valor deve estar entre 0 (zero) e 999;
+-> O preço deve ser um número e seu valor deve ser de pelo menos um Real (1.00) 
+
+
+b) Implemente o arquivo "cadastro.js" para que, quando o botão Salvar for acionado, os dados do produto sejam obtidos
+do fomulário, instaciados e validados como um produto da classe criada em "produto.js". Caso seja válido, o produto deve 
+ser persistido (acrescentado) em localStorage, usando a chave "produtos", em um array de produtos. Apresente uma mensagem
+de sucesso caso a operação seja completada corretamente e, caso contrário, apresente a(s) respectiva(s) mensagem(s)
+de erro. Observação:
+
+(i) estoque e o preço do produto devem ser convertidos para número, antes de o produto ser persistido;
+(ii) o id do produto deve ser gerado incrementamente, sem que haja valores repetidos.
+
+2) Implemente o arquivo "listagem.js" de modo a:
+
+a) Exibir no corpo da tabela todos os produtos cadastrados no localStorage, na chave "produtos" (vide a questão 1). Para
+gerar cada linha da tabela, utilize o método "map" no array de produtos.
+
+b) Exibir no rodapé da tabela o samatório do estoque e a média de preços dos produtos. A linha de rodapé da tebela dev ser 
+produzida criando cada elemento dinamanicamente, sem a proporiedade innerHTML.
+
+
+3) Considere que uma constante "produtos" contenha um array de objetos de produto, criados com a classe indicada na questão 1;
+e que uma constante "texto" possua uma string com um texto qualquer obtido de uma entrada do usuário, que visa procurar
+todos os produtos que contenham parte desse texto em sua descrição. Em uma única linha de código, que deve utilizar o
+método "filter", indique como esses produtos devem ser filtrados para atingir esse objetivo.
+
+
+
+
+
+
+
+

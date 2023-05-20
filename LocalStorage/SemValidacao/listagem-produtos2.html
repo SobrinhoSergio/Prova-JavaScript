@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listagem de Produtos</title>
+  </head>
+  <body>
+    <h1>Listagem de Produtos</h1>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+          <th>Estoque</th>
+          <th>Preço</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-produtos"></tbody>
+    </table>
+
+    <script type="module">
+      import RepositorioProduto from "./repositorio-produto.js";
+
+      const tbodyProdutos = document.querySelector("#tbody-produtos");
+
+      const repositorio = new RepositorioProduto();
+      const produtos = repositorio.obterTodos();
+
+      produtos.forEach((produto) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${produto.codigo}</td>
+          <td>${produto.descricao}</td>
+          <td>${produto.estoque}</td>
+          <td>${produto.preco}</td>
+          <td><button type="button" data-id="${produto.codigo}">Excluir</button></td>
+        `;
+        tbodyProdutos.appendChild(tr);
+      });
+
+      tbodyProdutos.addEventListener("click", (event) => {
+        const botaoExcluir = event.target.closest("button");
+        if (botaoExcluir) {
+          const id = parseInt(botaoExcluir.dataset.id);
+          const produtoIndex = produtos.findIndex((produto) => produto.codigo === id);
+          if (produtoIndex !== -1) {
+            const confirmacao = confirm(`Tem certeza que deseja excluir o produto ${id}?`);
+            if (confirmacao) {
+              repositorio.remover(id);
+              produtos.splice(produtoIndex, 1);
+              botaoExcluir.closest("tr").remove();
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

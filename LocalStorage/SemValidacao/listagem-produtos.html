@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listagem de Produtos</title>
+  </head>
+  <body>
+    <h1>Listagem de Produtos</h1>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Descrição</th>
+          <th>Estoque</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-produtos"></tbody>
+    </table>
+
+    <script type="module">
+      import RepositorioProduto from "./repositorio-produto.js";
+
+      const tbodyProdutos = document.querySelector("#tbody-produtos");
+
+      const repositorio = new RepositorioProduto();
+      const produtos = repositorio.obterTodos();
+
+      produtos.forEach((produto) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${produto.codigo}</td>
+          <td>${produto.descricao}</td>
+          <td>${produto.estoque}</td>
+          <td>${produto.preco}</td>
+        `;
+        tbodyProdutos.appendChild(tr);
+      });
+    </script>
+  </body>
+</html>

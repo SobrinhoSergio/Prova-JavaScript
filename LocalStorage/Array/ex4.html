@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body{
+            background-color: black;
+            color: #ffff
+        }
+    </style>
+    
+    <form>
+        <label for="descricao">Descrição</label>
+        <input type="text" id="descricao"/>
+        <Label for="estoque">Estoque</Label>
+        <input type="number" id="estoque"/>
+        <button id="adicionar">Adicionar</button>
+        <button id="remover">Remover</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+    <script>
+        
+        let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+
+        document.getElementById('adicionar').addEventListener('click', function(e){
+            e.preventDefault();
+
+            const descricao = document.getElementById('descricao').value;
+            const estoque = document.getElementById('estoque').value;
+
+            const obj ={
+                descricao: descricao,
+                estoque: estoque
+            }
+
+            produtos.push(obj);
+
+            // Aqui ele está transformando para JSON
+            const produtosString = JSON.stringify(produtos);
+
+            localStorage.setItem('produtos', produtosString);
+            
+            const corpo = document.querySelector('tbody');
+    
+            const linha = corpo.appendChild(document.createElement('tr'));
+            linha.appendChild(document.createElement('td')).innerText = obj.descricao;
+            linha.appendChild(document.createElement('td')).innerText = obj.estoque;  
+       });
+
+
+       document.addEventListener('DOMContentLoaded', function() {
+
+            // Ele pega como JSON
+            const produtosString = localStorage.getItem('produtos');
+            if (produtosString) {
+                // E posteriormente transforma para normal
+                const produtos = JSON.parse(produtosString);
+                const corpo = document.querySelector('tbody');
+                corpo.innerHTML = '';
+                produtos.forEach((produto) => {
+                    const linha = corpo.appendChild(document.createElement('tr'));
+                    linha.appendChild(document.createElement('td')).innerText = produto.descricao;
+                    linha.appendChild(document.createElement('td')).innerText = produto.estoque;
+                });
+            }
+       });
+
+    </script>
+    
+</body>
+</html>
