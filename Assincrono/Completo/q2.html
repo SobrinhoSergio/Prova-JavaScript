@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 2</title>
+</head>
+<body>
+    <table id="games">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Ano</th>
+                <th>Fabricante</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        fetch('http://localhost:3000/games', {mode: "cors"})
+            .then(resposta => {
+                if (!resposta.ok) {
+                   throw new Error('Erro ao consultar recurso.');
+                }
+
+                resposta.json();
+            })
+            .then(games => {
+                const corpo = document.querySelector('#games tbody');
+
+                for (const game of games) {
+                    const linhaId = document.createElement('td');
+                    const linhaNome = document.createElement('td');
+                    const linhaAno = document.createElement('td');
+                    const linhaFabricante = document.createElement('td');
+                    const tr = document.createElement('tr');
+
+                    linhaId.innerText = game.id;
+                    linhaNome.innerText = game.nome;
+                    linhaAno.innerText = game.ano;
+                    linhaFabricante.innerText = game.fabricante;
+
+                    tr.appendChild(linhaId);
+                    tr.appendChild(linhaNome);
+                    tr.appendChild(linhaAno);
+                    tr.appendChild(linhaFabricante);
+
+                    corpo.appendChild(tr);
+                }
+            })
+            .catch(erro => {
+                const div = document.createElement('div');
+                div.innerText = erro;
+                document.querySelector('main').appendChild(div);
+            });
+    </script>
+</body>
+</html>

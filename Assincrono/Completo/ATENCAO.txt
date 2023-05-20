@@ -1,0 +1,1 @@
+Não anexar a pasta "node_modules" ao ZIP de resposta da prova.

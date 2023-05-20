@@ -1,0 +1,52 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "nome": "Minecraft",
+      "ano": 2011,
+      "fabricante": "Mojang Studios"
+    },
+    {
+      "id": 3,
+      "nome": "PUBG: Battlegrounds",
+      "ano": 2017,
+      "fabricante": "PUBG Corporation"
+    },
+    {
+      "id": 4,
+      "nome": "Red Dead Redemption 2",
+      "ano": 2018,
+      "fabricante": "Rockstart Studios"
+    }
+  ],
+  "generos": [
+    {
+      "id": 1,
+      "descricao": "Sobrevivência"
+    },
+    {
+      "id": 2,
+      "descricao": "Ação/Aventura"
+    },
+    {
+      "id": 3,
+      "descricao": "Esportes"
+    },
+    {
+      "id": 4,
+      "descricao": "Battle Royale"
+    },
+    {
+      "id": 5,
+      "descricao": "Plataforma"
+    },
+    {
+      "id": 6,
+      "descricao": "Corrida"
+    },
+    {
+      "id": 7,
+      "descricao": "RPG"
+    }
+  ]
+}
