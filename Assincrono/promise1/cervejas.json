@@ -1,0 +1,6 @@
+[
+    { "nome": "Brahma",    "preco": 6.50 },
+    { "nome": "Artactica", "preco": 7.00 },
+    { "nome": "Heineken",  "preco": 8.00 },
+    { "nome": "Budweiser", "preco": 9.00 }
+]

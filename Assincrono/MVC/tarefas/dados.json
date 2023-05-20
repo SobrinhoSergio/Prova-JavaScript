@@ -1,0 +1,19 @@
+{
+  "tarefas": [
+    {
+      "id": 1,
+      "descricao": "Lavar Louça",
+      "concluida": false
+    },
+    {
+      "id": 2,
+      "descricao": "Estudar para prova de PCW",
+      "concluida": true
+    },
+    {
+      "id": 3,
+      "descricao": "Comprar pão",
+      "concluida": false
+    }
+  ]
+}

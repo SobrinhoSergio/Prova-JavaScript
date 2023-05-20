@@ -1,0 +1,16 @@
+# Instruções
+
+1. Como instalar as dependências:
+
+npm install
+
+2. Como executar o Json-Server:
+
+npx json-server dados.json --watch
+
+3. Para abrir tarefas.html, use uma das seguintes opções:
+
+a) Via extensão LiveServer, clicando com o botão direito; ou
+b) Execute o seguinte comando estando no diretório do arquivo e depois acesse "localhost" pelo navegador:
+
+php -S localhost:80

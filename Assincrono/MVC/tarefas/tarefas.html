@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+    <script src="controladora-tarefas.js" defer type="module" ></script>
+    <style>
+        .small { font-size: small; font-style: italic; }
+        table tbody tr {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tarefas</h1>
+    <output id="mensagem" ></output>
+    <p class="small" >Dê em uma linha para mudar a conclusão de uma tarefa.</p>
+    <table>
+        <thead>
+            <tr> <th>Id</th> <th>Descrição</th> <th>Concluída ?</th> </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>

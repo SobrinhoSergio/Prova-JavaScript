@@ -1,0 +1,39 @@
+{
+  "cervejas": [
+    {
+      "id": 1,
+      "nome": "Brahma",
+      "preco": 6.5
+    },
+    {
+      "id": 2,
+      "nome": "Artactica",
+      "preco": 7
+    },
+    {
+      "id": 3,
+      "nome": "Heineken",
+      "preco": 8
+    },
+    {
+      "id": 4,
+      "nome": "Budweiser",
+      "preco": 9
+    },
+    {
+      "nome": "Glacial",
+      "preco": 5,
+      "id": 5
+    },
+    {
+      "nome": "Cristal",
+      "preco": 5.5,
+      "id": 6
+    },
+    {
+      "nome": "Fanta Uva",
+      "preco": 3.99,
+      "id": 7
+    }
+  ]
+}

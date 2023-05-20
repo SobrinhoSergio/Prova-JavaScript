@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <script>
+        /*
+        Faça uma função "dividir" que divida um numerador por um denominador e
+        retorne uma Promessa. Caso o denominador seja zero (0), a promessa deve
+        ser rejeitada (com o motivo). Do contrário, resolvida (com o valor).
+        Utilize a função com alguns valores para testá-la.
+        */
+        function dividir( numerador, denominador ) {
+            return new Promise( function( resolve, reject ) {
+                if ( denominador == 0 ) {
+                    reject( 'Não é possível dividir por zero.' );
+                    return;
+                }
+                resolve( numerador / denominador );
+            } );
+        }
+
+        dividir( 10, 0 )
+            .then( valor => console.log( valor ) )
+            .catch( motivo => console.log( motivo ) );
+
+    </script>
+</body>
+</html>

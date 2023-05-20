@@ -1,0 +1,10 @@
+1. Para instalar as dependências da aplicação de cervejas (json-server), execute:
+
+npm install
+
+2. Para executar o json-server:
+
+npx json-server api.json --watch
+
+Qualquer dúvida, enviar no MS Teams. Abs!
+

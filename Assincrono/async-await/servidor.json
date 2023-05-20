@@ -1,0 +1,28 @@
+{
+  "selecoes": [
+    {
+      "nome": "França",
+      "id": 1
+    },
+    {
+      "nome": "Marrocos",
+      "id": 2
+    },
+    {
+      "nome": "Argentina",
+      "id": 3
+    },
+    {
+      "nome": "Croácia",
+      "id": 4
+    },
+    {
+      "nome": "Brasil",
+      "id": 5
+    },
+    {
+      "nome": "Inglaterra",
+      "id": 6
+    }
+  ]
+}
