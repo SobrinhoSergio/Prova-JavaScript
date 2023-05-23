@@ -4,7 +4,8 @@ export async function selecoes() {
         'França',
         'Marrocos',
         'Argentina',
-        'Croácia'
+        'Croácia',
+        'Seleção 1'
     ];
 }
 

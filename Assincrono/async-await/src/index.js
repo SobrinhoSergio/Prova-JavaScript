@@ -6,11 +6,15 @@ const listagem = document.querySelector( 'div' );
 
     try {
         const times = await selecoes3();
-        listagem.innerHTML += `
-            <ul>
-                ${times.map( t => `<li>${ typeof t === 'string' ? t : t.nome }</li>` ).join( '\n' )}
-            </ul>
-            `;
+        listagem.innerHTML += 
+            `<ul>
+                ${times.map( 
+                    t => 
+                        `<li>
+                            ${ typeof t === 'string' ? t : t.nome }
+                        </li>` 
+                ).join( '\n' )}
+            </ul>`;
     } catch( err ) {
         listagem.innerHTML += 'Erro: ' + err.message;
     }
