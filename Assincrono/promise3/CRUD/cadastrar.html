@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        input {
+            display: block;
+            background-color: khaki;
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+   
+    <a href="produtos.html" >Produtos</a>
+    <h1>Cadastro</h1>
+    <form>
+        <label for="nome">Nome</label>
+        <input type="text" id="descricao" />
+        <label for="estoque">Estoque</label>
+        <input type="number" id="estoque" />
+        <button id="salvar">Salvar</button>
+    </form>
+    <script>
+        document.getElementById( 'salvar' ).addEventListener( 'click',
+            ( ev ) => {
+            ev.preventDefault();
+
+            const obj = {
+                id: 0,
+                descricao: document.getElementById( 'descricao' ).value,
+                estoque: parseInt( document.getElementById( 'estoque' ).value ),
+            };
+
+            if ( obj.descricao.length < 2 ) {
+                alert( 'Informe uma descrição com pelo menos 2 caracteres.' );
+                return;
+            }
+
+            fetch( 'http://localhost:3000/produtos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify( obj )
+            } )
+                .then( response => {
+                    if ( ! response.ok ) {
+                        throw new Error( 'Erro ao salvar o produto.' );
+                    }
+                    alert( 'Salvo com sucesso.' );
+                    // location.href = 'produtos.html';
+                } )
+                .catch( erro => alert( erro.message ) );
+        } );
+    </script>
+</body>
+</html>

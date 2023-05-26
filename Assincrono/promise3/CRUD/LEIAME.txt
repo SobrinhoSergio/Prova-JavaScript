@@ -1,0 +1,8 @@
+Para instalar o json-server:
+
+1. Instale o NodeJS, caso não tenha.
+2. Rode "npm install".
+
+Para executar o json-server:
+
+npx json-server api.json --watch

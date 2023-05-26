@@ -1,0 +1,20 @@
+EXERCÍCIO 1:
+
+Fazer um fetch para obter os produtos do servidor e mostrá-los na tabela.
+Ex. http://localhost:3000/produtos
+
+EXERCÍCIO 2:
+
+Fazer um formulário que contenha os dados do produto e que,
+ao acionar uma opção "Salvar", envie o produto para o servidor,
+via POST, no formato JSON. Observações:
+    a. É preciso passar o cabeçalho "Content-Type" com
+        "application/json" para isso (via headers).
+    b. É preciso transformar o objeto em uma string e passá-la
+        no corpo (body) da requisição.
+    c. Enviar "id" do produto com valor zero, para o json-server
+        entender que é um produto novo.
+
+EXERCÍCIO 3:
+
+Crie uma maneira de remover um produto.

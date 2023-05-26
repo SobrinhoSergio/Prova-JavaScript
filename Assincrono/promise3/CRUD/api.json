@@ -1,0 +1,39 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "descricao": "Refri Acme",
+      "estoque": 10
+    },
+    {
+      "id": 2,
+      "descricao": "Refri Xpto",
+      "estoque": 20
+    },
+    {
+      "id": 3,
+      "descricao": "Hamburguer Zica",
+      "estoque": 5
+    },
+    {
+      "id": 4,
+      "descricao": "Guaraná Friburgo",
+      "estoque": 20
+    },
+    {
+      "id": 5,
+      "descricao": "Coca-cola",
+      "estoque": 30
+    },
+    {
+      "id": 6,
+      "descricao": "Pepsi",
+      "estoque": 30
+    },
+    {
+      "id": 7,
+      "descricao": "Guaraná X",
+      "estoque": 20
+    }
+  ]
+}

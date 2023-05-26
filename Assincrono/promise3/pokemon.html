@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pokemon</h1>
+    <input type="text" id="nome" />
+    <button id="pesquisar" type="search" >Pesquisar</button>
+    <img src="" alt="Pokemon" />
+    <script>
+        document.getElementById( 'pesquisar' ).addEventListener( 'click',
+            () => {
+                const nome = document.getElementById( 'nome' ).value;
+                fetch( `https://pokeapi.co/api/v2/pokemon/${nome}` )
+                    .then( function( response ) {
+                        // Ver se deu algo errado
+                        if ( ! response.ok ) { // response.status >= 400
+                            throw new Error( 'Ocorreu um erro...' );
+                        }
+                        // // Pega os dados do Pokemon
+                        // response.json()
+                        //     .then( function( pokemon ) {
+                        //         document.querySelector( 'img' ).src =
+                        //             pokemon.sprites.front_default;
+                        //     } )
+                        //     .catch( function( erro ) {
+                        //         alert( error.message );
+                        //     } );
+                        return response.json();
+                    } )
+                    .then( function( pokemon ) {
+                        document.querySelector( 'img' ).src =
+                            pokemon.sprites.front_default;
+                    } )
+                    .catch( function( error ) {
+                        alert( error.message );
+                    } );
+            } );
+    </script>
+</body>
+</html>

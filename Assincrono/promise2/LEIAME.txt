@@ -1,0 +1,14 @@
+# Instruções
+
+1. Como instalar as dependências:
+
+Entrar na pasta e digitar o comando abaixo:
+
+npm install
+
+2. Como executar o Json-Server:
+
+Estando na pasta, digitar o comando abaixo:
+
+npx json-server servidor.json --watch
+
