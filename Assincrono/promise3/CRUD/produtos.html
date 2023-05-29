@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
+    <script src="listar-produtos.js" defer></script>
+    <script src="excluir-produtos.js" defer></script>
+
     <style>
         thead {
             background-color: gray;
@@ -31,60 +34,5 @@
         <tbody>
         </tbody>
     </table>
-    <script>
-      
-
-        fetch( 'http://localhost:3000/produtos' )
-            .then( tratarResposta )
-            .then( tratarProdutos )
-            .catch( tratarErro );
-
-        function tratarResposta( response ) {
-            if ( ! response.ok ) {
-                throw new Error( 'Erro ao consultar os produtos.' );
-            }
-            return response.json();
-        }
-
-        function tratarProdutos( produtos ) {
-            document.querySelector( 'tbody' ).innerHTML =
-                produtos.map( p => `
-                    <tr onclick="selecionar(${p.id})" data-id="${p.id}" >
-                        <td>${p.id}</td>
-                        <td>${p.descricao}</td>
-                        <td>${p.estoque}</td>
-                    </tr>`
-                ).join( '\n' );
-        }
-
-        function tratarErro( erro ) {
-            alert( erro.message );
-        }
-
-        function selecionar( id ) {
-            const tr = document.querySelector( `tr[data-id="${id}"]` );
-            tr.classList.toggle( 'selecionado' );
-        }
-
-        document.getElementById( 'remover' ).addEventListener( 'click',
-            () => {
-                const tr = document.querySelector( 'tr.selecionado' );
-                if ( ! tr ) {
-                    alert( 'Selecione uma linha.' );
-                    return;
-                }
-                const id = tr.dataset.id; // Pega "data-id" da linha
-                fetch( `http://localhost:3000/produtos/${id}`,
-                    { method: 'DELETE' } )
-                    .then( response => {
-                        if ( ! response.ok ) {
-                            throw new Error( 'Erro ao remover o produto' );
-                        }
-                        tr.remove(); // Remove da tabela
-                    } )
-                    .catch( erro => alert( erro.message ) );
-        } );
-
-    </script>
 </body>
 </html>
