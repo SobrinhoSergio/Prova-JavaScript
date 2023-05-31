@@ -1,31 +1,35 @@
-document.getElementById( 'salvar' ).addEventListener( 'click',
-            ( ev ) => {
-            ev.preventDefault();
+document.getElementById( 'salvar' ).addEventListener( 'click', ( ev ) => {
+    ev.preventDefault();
 
-            const obj = {
-                id: 0,
-                descricao: document.getElementById( 'descricao' ).value,
-                estoque: parseInt( document.getElementById( 'estoque' ).value ),
-            };
+    const obj = {
+        id: 0,
+        descricao: document.getElementById( 'descricao' ).value,
+        estoque: parseInt( document.getElementById( 'estoque' ).value ),
+    };
 
-            if ( obj.descricao.length < 2 ) {
-                alert( 'Informe uma descrição com pelo menos 2 caracteres.' );
-                return;
+    if (obj.estoque < 1 || obj.estoque > 99) {
+        alert('Estoque Inválido');
+        return;
+    }            
+
+    if ( obj.descricao.length < 2 ) {
+        alert( 'Informe uma descrição com pelo menos 2 caracteres.' );
+        return;
+    }
+
+    fetch( 'http://localhost:3000/produtos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( obj )
+    } )
+        .then( response => {
+            if ( ! response.ok ) {
+                throw new Error( 'Erro ao salvar o produto.' );
             }
-
-            fetch( 'http://localhost:3000/produtos', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify( obj )
-            } )
-                .then( response => {
-                    if ( ! response.ok ) {
-                        throw new Error( 'Erro ao salvar o produto.' );
-                    }
-                    alert( 'Salvo com sucesso.' );
-                    // location.href = 'produtos.html';
-                } )
-                .catch( erro => alert( erro.message ) );
-        } );
+            alert( 'Salvo com sucesso.' );
+            // location.href = 'produtos.html';
+        } )
+        .catch( erro => alert( erro.message ) );
+} );
