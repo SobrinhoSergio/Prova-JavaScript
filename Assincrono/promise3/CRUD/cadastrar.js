@@ -7,7 +7,7 @@ document.getElementById( 'salvar' ).addEventListener( 'click', ( ev ) => {
         estoque: parseInt( document.getElementById( 'estoque' ).value ),
     };
 
-    if (obj.estoque < 1 || obj.estoque > 99) {
+    if (obj.estoque < 1 || obj.estoque > 99 || obj.estoque !== null) {
         alert('Estoque Inválido');
         return;
     }            

@@ -11,11 +11,6 @@
       "estoque": 20
     },
     {
-      "id": 3,
-      "descricao": "Hamburguer Zica",
-      "estoque": 5
-    },
-    {
       "id": 4,
       "descricao": "Guaraná Friburgo",
       "estoque": 20
@@ -27,13 +22,13 @@
     },
     {
       "id": 6,
-      "descricao": "Pepsi",
-      "estoque": 30
+      "descricao": "Guaraná Exemplo",
+      "estoque": 3
     },
     {
-      "id": 7,
-      "descricao": "Guaraná",
-      "estoque": 8
+      "id": 8,
+      "descricao": "Fanta Laranja",
+      "estoque": 100
     }
   ]
 }
