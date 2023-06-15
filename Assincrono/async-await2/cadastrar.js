@@ -1,4 +1,3 @@
-
 function carregarProduto() {
     const obj = {};
     location.search.substring( 1 ).split( '&' )
