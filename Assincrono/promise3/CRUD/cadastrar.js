@@ -25,7 +25,7 @@ document.getElementById( 'salvar' ).addEventListener( 'click', ( ev ) => {
         body: JSON.stringify( obj )
     } )
         .then( response => {
-            if ( ! response.ok ) {
+            if ( ! response.ok ) { // response >= 400
                 throw new Error( 'Erro ao salvar o produto.' );
             }
             alert( 'Salvo com sucesso.' );

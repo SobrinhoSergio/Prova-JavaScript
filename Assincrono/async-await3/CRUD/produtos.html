@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <script src="listar-produtos.js" defer></script>
+    <script src="excluir-produtos.js" defer></script>
+
+    <style>
+        thead {
+            background-color: gray;
+            color: white;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: khaki;
+        }
+        .selecionado {
+            background-color: gold !important;
+        }
+    </style>
+</head>
+<body>
+    <a href="cadastrar.html" >Cadastrar</a>
+    <button id="remover" >Remover</button>
+    <h1>Produtos</h1>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Descrição</th>
+            <th>Estoque</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "descricao": "Lavar Louça",
-      "concluida": false
+      "concluida": true
     },
     {
       "id": 2,
@@ -13,7 +13,12 @@
     {
       "id": 3,
       "descricao": "Comprar pão",
-      "concluida": false
+      "concluida": true
+    },
+    {
+      "id": 4,
+      "descricao": "Andar de moto",
+      "concluida": true
     }
   ]
 }

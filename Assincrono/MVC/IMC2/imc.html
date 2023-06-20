@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+    <form>
+        <label for="peso">Peso:</label>
+        <input type="number" id="peso" />
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" />
+        <button id="calcular">Calcular</button>
+        <output></output>
+    </form>
+    <script type="module" >
+        import { ControladoraIMC } from "./controladora-imc.js";
+        const controladora = new ControladoraIMC();
+        controladora.iniciar();
+    </script>
+</body>
+</html>

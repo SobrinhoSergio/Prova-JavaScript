@@ -12,17 +12,13 @@ function tratarResposta(response) {
 
 function tratarProdutos(produtos) {
     document.querySelector('tbody').innerHTML =
-        produtos
-            .map(
-                (p) => `
+        produtos.map((p) => `
                     <tr onclick="selecionar(${p.id})" data-id="${p.id}" >
                         <td>${p.id}</td>
                         <td>${p.descricao}</td>
                         <td>${p.estoque}</td>
-                    </tr>
-                `
-            )
-            .join('\n');
+                    </tr>`
+            ).join('\n');
 }
 
 function tratarErro(erro) {
